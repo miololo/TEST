@@ -3,133 +3,185 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Game Landing Page</title>
+<title>Prison Empire Tycoon - Idle Game</title>
 <style>
+  /* Reset */
   * {margin: 0; padding: 0; box-sizing: border-box;}
   body {
-    font-family: Arial, sans-serif;
-    background-color: #0d1117;
+    font-family: 'Segoe UI', sans-serif;
     color: white;
-    line-height: 1.5;
+    background-color: #0d1117;
+    overflow-x: hidden;
   }
 
-  /* Header image */
-  .header-image {
+  /* Hero Section */
+  .hero {
+    height: 100vh;
+    background: url('https://i.imgur.com/Q4uKFxM.jpeg') center/cover no-repeat;
     position: relative;
-    width: 100%;
-    height: 220px; /* Slightly smaller header */
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
-  .header-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .overlay {
+  .hero::after {
+    content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
   }
-
-  /* Game info container */
-  .game-info {
-    display: flex;
-    gap: 15px;
-    padding: 15px;
-    background-color: #111827;
-    align-items: center; /* Center vertically */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
   }
-  .game-cover {
-    width: 90px; /* smaller cover image */
-    flex-shrink: 0;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s;
+  .hero-logo {
+    width: 140px;
+    margin-bottom: 20px;
   }
-  .game-cover:hover {
-    transform: scale(1.05);
-  }
-  .game-cover img {
-    width: 100%;
-    display: block;
-  }
-  .game-details h1 {
-    font-size: 1.4rem;
-    margin-bottom: 5px;
-  }
-  .meta {
-    font-size: 0.85rem;
-    color: #ccc;
+  .hero h1 {
+    font-size: 2.4rem;
+    font-weight: bold;
     margin-bottom: 10px;
   }
-
-  /* Rating and download */
-  .rating {
-    background: gold;
-    color: black;
-    padding: 5px 8px;
-    border-radius: 6px;
-    font-weight: bold;
-    display: inline-block;
-    margin-right: 8px;
-    font-size: 0.85rem;
+  .hero p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #d1d5db;
   }
-  .download-btn {
+  .btn-primary {
     display: inline-block;
-    padding: 8px 14px;
+    padding: 14px 26px;
     background: linear-gradient(90deg, #0ea5e9, #3b82f6);
     color: white;
-    font-weight: bold;
-    border-radius: 6px;
+    font-size: 1rem;
+    border-radius: 10px;
     text-decoration: none;
-    font-size: 0.85rem;
-    transition: background 0.3s;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
-  .download-btn:hover {
-    background: linear-gradient(90deg, #3b82f6, #0ea5e9);
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
   }
 
-  /* Description */
-  .description {
-    padding: 15px;
-    background-color: #1f2937;
-    font-size: 0.95rem;
+  /* Features Section */
+  .features {
+    padding: 60px 20px;
+    background: #111827;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+  }
+  .feature-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+  .feature-card span {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .feature-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    color: #facc15;
+  }
+  .feature-card p {
+    font-size: 0.9rem;
     color: #d1d5db;
-    margin-top: -5px; /* Pull description closer to game info */
+  }
+
+  /* Rating Section */
+  .rating-section {
+    background: #0f172a;
+    padding: 50px 20px;
+    text-align: center;
+  }
+  .stars {
+    font-size: 1.5rem;
+    color: #facc15;
+    margin-bottom: 10px;
+  }
+  .rating-section p {
+    color: #d1d5db;
+    font-size: 0.95rem;
+  }
+
+  /* Sticky Download Button */
+  .sticky-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(90deg, #0ea5e9, #3b82f6);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    transition: transform 0.2s;
+  }
+  .sticky-btn:hover {
+    transform: scale(1.05);
   }
 </style>
 </head>
 <body>
 
-<!-- Header image -->
-<div class="header-image">
-  <a href="https://appinstallcheck.com/cl/i/qk7gn4">
-    <img src="https://i.imgur.com/Q4uKFxM.jpeg" alt="Game Banner">
-    <div class="overlay"></div>
-  </a>
-</div>
-
-<!-- Game info -->
-<div class="game-info">
-  <a href="https://appinstallcheck.com/cl/i/qk7gn4" class="game-cover">
-    <img src="https://i.imgur.com/0bW2FIE.png" alt="Game Cover">
-  </a>
-  <div class="game-details">
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <img src="https://i.imgur.com/0bW2FIE.png" alt="Prison Empire Tycoon Logo" class="hero-logo">
     <h1>Prison Empire Tycoon</h1>
-    <div class="meta">2025 • Simulation • 18+</div>
-    <div>
-      <span class="rating">⭐ 4.6 / 5</span>
-      <a href="https://appinstallcheck.com/cl/i/qk7gn4" class="download-btn">⬇ Download</a>
-    </div>
+    <p>Build, manage and expand your prison in this addictive idle simulation game.</p>
+    <a href="https://appinstallcheck.com/cl/i/qk7gn4" class="btn-primary">🎮 Play Now</a>
   </div>
-</div>
+</section>
 
-<!-- Description -->
-<div class="description">
-  Build, manage, and expand your prison in this addictive idle simulation game. 
-  Hire staff, manage inmates, and keep order to avoid chaos. Earn profits even while you're offline!
-</div>
+<!-- Features -->
+<section class="features">
+  <div class="feature-card">
+    <span>🏢</span>
+    <h3>Build & Expand</h3>
+    <p>Upgrade prison cells, offices, and facilities for maximum efficiency.</p>
+  </div>
+  <div class="feature-card">
+    <span>🛠</span>
+    <h3>Manage Staff</h3>
+    <p>Hire the best guards, medics, and administrative workers.</p>
+  </div>
+  <div class="feature-card">
+    <span>💰</span>
+    <h3>Idle Profits</h3>
+    <p>Earn money even when you're not playing.</p>
+  </div>
+  <div class="feature-card">
+    <span>🎯</span>
+    <h3>Keep Order</h3>
+    <p>Manage inmates and prevent prison riots.</p>
+  </div>
+</section>
+
+<!-- Ratings -->
+<section class="rating-section">
+  <div class="stars">⭐⭐⭐⭐⭐</div>
+  <h2>4.6 / 5</h2>
+  <p>Based on 5M+ reviews • 100M+ downloads</p>
+</section>
+
+<!-- Sticky Download Button -->
+<a href="https://appinstallcheck.com/cl/i/qk7gn4" class="sticky-btn">⬇ Download Now</a>
 
 </body>
 </html>
