@@ -1,63 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TEST</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      height: 100vh;
-      justify-content: center;
-      align-items: center;
-    }
-    .container {
-      background: white;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      text-align: center;
-      max-width: 500px;
-    }
-    img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    h1 {
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 16px;
-      color: #333;
-      margin-bottom: 30px;
-    }
-    a.button {
-      text-decoration: none;
-      background: #007BFF;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 6px;
-      font-weight: bold;
-    }
-    a.button:hover {
-      background: #0056b3;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prison Empire Tycoon - Idle Game</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: #fff;
+    background: url('https://raw.githubusercontent.com/appliink/apptry/main/prison-bg.jpg') center/cover fixed no-repeat;
+  }
+  .overlay {
+    background: rgba(0, 0, 0, 0.7);
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .card {
+    backdrop-filter: blur(10px);
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 20px;
+    max-width: 450px;
+    margin: auto;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  }
+  .card img.logo {
+    display: block;
+    width: 120px;
+    margin: 20px auto 10px;
+  }
+  .card img.cover {
+    width: 100%;
+    display: block;
+  }
+  .content {
+    padding: 20px;
+    text-align: center;
+  }
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 6px;
+  }
+  .rating {
+    color: #facc15;
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  .sub-info {
+    font-size: 13px;
+    color: #d1d5db;
+    margin-bottom: 15px;
+  }
+  .tags {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .tag {
+    background-color: rgba(255,255,255,0.1);
+    padding: 5px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+  }
+  .features {
+    display: grid;
+    gap: 10px;
+    text-align: left;
+  }
+  .feature {
+    background: rgba(255,255,255,0.05);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .feature span {
+    font-size: 18px;
+  }
+  .download-btn {
+    display: block;
+    margin: 20px auto 10px;
+    padding: 12px 20px;
+    background: linear-gradient(90deg, #0ea5e9, #3b82f6);
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <<img src="https://raw.githubusercontent.com/miololo/TEST/main/Porsche_3512_engine_rear-left_2019_Prototyp_Museum.jpg" alt="Porsche 3512 Engine">
-
-    <h1>TEST</h1>
-    <p>
-      A car engine converts fuel into mechanical energy. It works by igniting a fuel-air mixture inside its cylinders, causing tiny explosions that push pistons. These pistons turn the crankshaft, which powers the wheels and moves the vehicle.
-    </p>
-    <a class="button" href="/85924">Claim</a>
+<div class="overlay">
+  <div class="card">
+    <img src="https://raw.githubusercontent.com/appliink/apptry/main/prison-logo.png" class="logo" alt="Prison Empire Tycoon Logo">
+    <img src="https://raw.githubusercontent.com/appliink/apptry/main/prison-cover.jpg" class="cover" alt="Prison Empire Tycoon Cover">
+    <div class="content">
+      <div class="title">Prison Empire Tycoon</div>
+      <div class="rating">⭐⭐⭐⭐⭐ 4.6 / 5</div>
+      <div class="sub-info">5M+ Reviews • 100M+ Downloads</div>
+      <div class="tags">
+        <div class="tag">Simulation</div>
+        <div class="tag">Idle Game</div>
+      </div>
+      <div class="features">
+        <div class="feature"><span>🏢</span> Build and expand your prison facilities</div>
+        <div class="feature"><span>🛠</span> Hire and manage guards & staff</div>
+        <div class="feature"><span>💰</span> Earn idle income even while offline</div>
+        <div class="feature"><span>🎯</span> Manage prisoners and keep order</div>
+        <div class="feature"><span>🌎</span> Compete with players worldwide</div>
+      </div>
+      <a href="https://appinstallcheck.com/cl/i/qk7gn4" class="download-btn">🎮 Play Now</a>
+    </div>
   </div>
+</div>
 </body>
 </html>
